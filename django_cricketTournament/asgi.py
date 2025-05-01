@@ -17,15 +17,3 @@ application = get_asgi_application()
 
 
 
-from channels.routing import ProtocolTypeRouter, URLRouter
-from channels.auth import AuthMiddlewareStack
-import main.routing
-
-application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
-    "websocket": AuthMiddlewareStack(
-        URLRouter(
-            main.routing.websocket_urlpatterns
-        )
-    ),
-})
