@@ -25,8 +25,17 @@ SECRET_KEY = 'django-insecure-y8&f0y-b)3izagle=03(iu74^zn5mi_u1mu1xug9ca8mg4z$b6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
+#for Deployement 
 ALLOWED_HOSTS = [
     'django-crickettournament.onrender.com',
+    '127.0.0.1'
+]
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-crickettournament.onrender.com',
+    'https://example.com',
+    'https://anotherdomain.com',
 ]
 
 
@@ -41,6 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
 ]
+
+INSTALLED_APPS += ['channels']
+ASGI_APPLICATION = 'django_cricketTournament.asgi.application'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -119,6 +131,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

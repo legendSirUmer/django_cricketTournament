@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import *
 
+
 urlpatterns = [
     path('', index, name='index'),
     path('contact/', contact, name='contact'),
@@ -25,4 +26,13 @@ urlpatterns = [
     
     path('matches/', matches, name='matches'),
     path('teams/', teams, name='teams'),
+    path('live-score/<int:match_id>/',live_score, name='live_score'),
+]
+
+
+
+from django.urls import re_path
+from . import consumer
+websocket_urlpatterns = [
+    re_path(r'ws/live-score/(?P<match_id>\d+)/$', consumer.LiveScoreConsumer.as_asgi()),
 ]
