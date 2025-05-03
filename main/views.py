@@ -87,3 +87,41 @@ def live_score(request, match_id):
         return JsonResponse(data)
     except LiveScore.DoesNotExist:
         return JsonResponse({'error': 'Live score not found'}, status=404)
+    
+
+
+
+
+
+
+
+
+
+
+
+from django.shortcuts import redirect
+from .models import Messages
+from django.contrib import messages as flash_messages  # For success/error messages
+
+def contact(request):
+    if request.method == "POST":
+        first_name = request.POST.get('c_fname')
+        last_name = request.POST.get('c_lname')
+        email = request.POST.get('c_email')
+        subject = request.POST.get('c_subject')
+        message = request.POST.get('c_message')
+
+        # Save the message to the database
+        Messages.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+
+        # Add a success message
+        flash_messages.success(request, "Your message has been sent successfully!")
+        return redirect('contact')  # Redirect to the contact page after submission
+
+    return render(request, 'contact.html')

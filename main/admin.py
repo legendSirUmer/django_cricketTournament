@@ -24,3 +24,11 @@ admin.site.register(LiveScoreHistory)
 class LiveScoreAdmin(admin.ModelAdmin):
     list_display = ('match', 'current_score', 'overs', 'wickets', 'batsman', 'batsman_score', 'runner', 'runner_score', 'bowler', 'last_ball_runs', 'ball_type')
     fields = ('match', 'current_score', 'overs', 'wickets', 'batsman', 'batsman_score', 'runner', 'runner_score', 'bowler', 'last_ball_runs', 'ball_type')
+
+
+from .models import Messages
+
+@admin.register(Messages)
+class MessagesAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'email', 'subject', 'timestamp')
+    search_fields = ('first_name', 'last_name', 'email', 'subject')

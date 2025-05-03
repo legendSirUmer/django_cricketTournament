@@ -143,3 +143,30 @@ class LiveScoreHistory(models.Model):
 
     def __str__(self):
         return f"{self.match} - {self.current_score} at {self.timestamp}"
+    
+
+
+class Messages(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200, blank=True, null=True)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.email}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
