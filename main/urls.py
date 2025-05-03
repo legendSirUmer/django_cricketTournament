@@ -22,11 +22,10 @@ from .views import *
 urlpatterns = [
     path('', index, name='index'),
     path('contact/', contact, name='contact'),
-    path('about/', about, name='about'),
-    
     path('matches/', matches, name='matches'),
     path('teams/', teams, name='teams'),
     path('live-score/<int:match_id>/',live_score, name='live_score'),
+    path('matchdetails', match_details, name='match_details'),
 ]
 
 

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import LiveScoreHistory
 
 # Register your models here.
 admin.site.site_header = "Cricket Tournament Admin"
@@ -16,10 +17,10 @@ admin.site.register(MatchDetails)
 
 admin.site.register(Score)
 admin.site.register(Team)
+admin.site.register(LiveScoreHistory)
 
 
 @admin.register(LiveScore)
 class LiveScoreAdmin(admin.ModelAdmin):
-    list_display = ('match', 'current_score', 'overs', 'wickets', 'batsman', 'batsman_score', 'runner', 'runner_score')
-
-
+    list_display = ('match', 'current_score', 'overs', 'wickets', 'batsman', 'batsman_score', 'runner', 'runner_score', 'bowler', 'last_ball_runs', 'ball_type')
+    fields = ('match', 'current_score', 'overs', 'wickets', 'batsman', 'batsman_score', 'runner', 'runner_score', 'bowler', 'last_ball_runs', 'ball_type')

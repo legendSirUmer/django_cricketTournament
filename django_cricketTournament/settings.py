@@ -51,8 +51,7 @@ INSTALLED_APPS = [
     'main',
 ]
 
-INSTALLED_APPS += ['channels']
-ASGI_APPLICATION = 'django_cricketTournament.asgi.application'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
