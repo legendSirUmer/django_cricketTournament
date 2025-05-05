@@ -29,10 +29,13 @@ DEBUG = True
 
 #for Deployement 
 ALLOWED_HOSTS = [
+    'breakable-rayna-legendsirumer-1947a8a6.koyeb.app' ,
     'django-crickettournament.onrender.com',
     '127.0.0.1'
+    
 ]
 CSRF_TRUSTED_ORIGINS = [
+    'https://breakable-rayna-legendsirumer-1947a8a6.koyeb.app',
     'https://django-crickettournament.onrender.com',
     'https://example.com',
     'https://anotherdomain.com',
