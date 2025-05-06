@@ -6,13 +6,13 @@ def index(request):
     matches = Match.objects.all()
     next_match = matches.filter(date__gt=datetime.date.today()).order_by('date').first()
     current_match = matches.filter(date=datetime.date.today()).last()
-    current_live_score = LiveScore.objects.filter(match=current_match).first() 
+    current_live_score = LiveScore.objects.all().last()
     # print( "current liveScore id" , current_live_score.id)
     # print( "current match Team 1" , current_match.team1.name)
     # print( "current match Team 2" , current_match.team2.name)
     
     previous_matches = matches.filter(date__lt=datetime.date.today()).order_by('-date')[:5]
-    return render(request, 'index.html', {'matches': matches, 'next_match': next_match, 'previous_matches': previous_matches, 'current_match': current_match})
+    return render(request, 'index.html', {'matches': matches, 'next_match': next_match, 'previous_matches': previous_matches, 'current_match': current_live_score})
 
 
 
@@ -71,7 +71,7 @@ from .models import LiveScore
 
 def live_score(request, match_id):
     try:
-        live_score = LiveScore.objects.get(match_id=match_id)
+        live_score = LiveScore.objects.get(pk = match_id)
         data = {
             'match': str(live_score.match),
             'current_score': live_score.current_score,
