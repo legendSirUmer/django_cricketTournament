@@ -1,0 +1,2 @@
+Cricket LiveScoring , Detailing , This Project Contains automation of the batsman and runner position upon scoring 1 or 3 runs , overs updates with 6 balls and LiveScoring With frontend AJAX implementation every 5 seconds , with trigger signals to add per ball history of the match , Admin options for Organizers to add Teams , Players , Matches and Scores with Live Scores analytics details of the match  
+Hosted LINK: https://django-crickettournament.onrender.com
